@@ -1,0 +1,154 @@
+index.html <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Apopka | Local Reliable Vehicles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .option-card.active { border-color: #ef4444; background-color: #fef2f2; transform: translateY(-4px); }
+        .lang-btn.active { background-color: #ef4444; color: white; border-color: #ef4444; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+
+    <nav class="bg-white border-b border-gray-100 py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black text-red-600 tracking-tighter italic">APOPKA<span class="text-slate-800">DRIVE</span></div>
+            <div class="flex items-center gap-4">
+                <div class="flex border rounded-lg overflow-hidden">
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-btn px-3 py-1 text-sm font-bold active">EN</button>
+                    <button onclick="setLanguage('es')" id="btn-es" class="lang-btn px-3 py-1 text-sm font-bold border-l">ES</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-12 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 id="hero-title" class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+                Impeccable car rentals <br><span class="text-red-600 font-black">for people on the move.</span>
+            </h1>
+            <p id="hero-sub" class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+                Is your car at the shop? Need to earn with Uber or Lyft? <br>
+                Freshly washed vehicles ready at **2184 E Semoran Blvd**.
+            </p>
+
+            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-100">
+                <h2 id="step-title" class="text-xl font-bold mb-8 text-slate-800 uppercase tracking-wide italic">Select your rental purpose:</h2>
+                
+                <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <div id="opt1" onclick="selectOption('personal', 'opt1')" class="option-card cursor-pointer border-2 border-gray-200 p-6 rounded-2xl transition-all hover:shadow-md text-left">
+                        <div class="text-red-600 mb-3"><i class="fas fa-user text-2xl"></i></div>
+                        <h3 class="font-bold text-lg lang-txt" data-en="Personal / Shop" data-es="Personal / Taller">Personal / Shop</h3>
+                        <p class="text-xs text-slate-500 mt-2 lang-txt" data-en="My car is damaged or I need a temporary ride." data-es="Mi auto está dañado o necesito transporte temporal.">My car is damaged or I need a temporary ride.</p>
+                    </div>
+                    <div id="opt2" onclick="selectOption('uber', 'opt2')" class="option-card cursor-pointer border-2 border-gray-200 p-6 rounded-2xl transition-all hover:shadow-md text-left">
+                        <div class="text-red-600 mb-3"><i class="fas fa-taxi text-2xl"></i></div>
+                        <h3 class="font-bold text-lg lang-txt" data-en="Uber / Lyft" data-es="Uber / Lyft">Uber / Lyft</h3>
+                        <p class="text-xs text-slate-500 mt-2 lang-txt" data-en="Approved vehicles for gig work and ride-sharing." data-es="Vehículos aprobados para plataformas de transporte.">Approved vehicles for gig work and ride-sharing.</p>
+                    </div>
+                    <div id="opt3" onclick="selectOption('business', 'opt3')" class="option-card cursor-pointer border-2 border-gray-200 p-6 rounded-2xl transition-all hover:shadow-md text-left">
+                        <div class="text-red-600 mb-3"><i class="fas fa-briefcase text-2xl"></i></div>
+                        <h3 class="font-bold text-lg lang-txt" data-en="Business / Corp" data-es="Negocios / Corp">Business / Corp</h3>
+                        <p class="text-xs text-slate-500 mt-2 lang-txt" data-en="Tailored solutions for local businesses and fleets." data-es="Soluciones para empresas locales y flotas.">Tailored solutions for local businesses and fleets.</p>
+                    </div>
+                </div>
+
+                <button id="cta-button" onclick="redirectToAvis()" class="w-full bg-slate-400 text-white text-xl font-extrabold py-5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3 cursor-not-allowed" disabled>
+                    <span id="btn-label">Select an option above</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="text-red-600 font-bold text-2xl">100%</div><div class="text-[10px] text-slate-500 uppercase font-bold lang-txt" data-en="Cleanliness Guaranteed" data-es="Limpieza Garantizada">Cleanliness Guaranteed</div></div>
+            <div><div class="text-red-600 font-bold text-2xl">Debit</div><div class="text-[10px] text-slate-500 uppercase font-bold lang-txt" data-en="Cards Accepted" data-es="Aceptamos Débito">Cards Accepted</div></div>
+            <div><div class="text-red-600 font-bold text-2xl">Fast</div><div class="text-[10px] text-slate-500 uppercase font-bold lang-txt" data-en="Local Service" data-es="Servicio Local">Local Service</div></div>
+            <div><div class="text-red-600 font-bold text-2xl">VIP</div><div class="text-[10px] text-slate-500 uppercase font-bold lang-txt" data-en="Fleet Appearance" data-es="Apariencia VIP">Fleet Appearance</div></div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-12 px-6 text-center">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-slate-500 text-xs mb-6">Location: 2184 E Semoran Blvd, Apopka, FL 32703</p>
+            <div class="flex justify-center gap-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <button onclick="toggleModal('privacy-modal')" class="hover:text-red-500 transition">Privacy Policy</button>
+                <button onclick="toggleModal('privacy-modal')" class="hover:text-red-500 transition">Terms</button>
+            </div>
+            <p class="text-[9px] text-slate-600 mt-8 max-w-xl mx-auto leading-relaxed">
+                ADVISORY: We are an independent local portal. All reservations are processed by authorized third-party providers. We use cookies to ensure proper booking credit.
+            </p>
+        </div>
+    </footer>
+
+    <div id="privacy-modal" class="hidden fixed inset-0 bg-slate-900/90 z-[60] p-4 flex items-center justify-center">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-8 relative">
+            <button onclick="toggleModal('privacy-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-red-600"><i class="fas fa-times"></i></button>
+            <h2 class="text-xl font-bold mb-4">Privacy & Disclosure</h2>
+            <div class="text-sm text-slate-600 space-y-3">
+                <p>This site operates as an affiliate. We use cookies from partners like CJ Affiliate and Avis to track referrals.</p>
+                <p>We do not store your credit card data. All payments are handled on the official provider's secure platform.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        let selectedType = '';
+        
+        // REEMPLAZA ESTOS LINKS CON TUS ENLACES DE AFILIADO REALES
+        const links = {
+            'personal': 'https://www.avis.com/en/locations/us/fl/apopka/o14', 
+            'uber': 'https://www.avis.com/en/uber',
+            'business': 'https://www.avis.com/en/business-rentals'
+        };
+
+        const translations = {
+            'en': {
+                'hero-title': 'Impeccable car rentals <br><span class="text-red-600 font-black">for people on the move.</span>',
+                'hero-sub': 'Is your car at the shop? Need to earn with Uber or Lyft? <br>Freshly washed vehicles ready at **2184 E Semoran Blvd**.',
+                'step-title': 'Select your rental purpose:',
+                'btn-label': 'Select an option above',
+                'btn-ready': 'Check Availability & Prices'
+            },
+            'es': {
+                'hero-title': 'Renta de autos impecables <br><span class="text-red-600 font-black">para gente en movimiento.</span>',
+                'hero-sub': '¿Tu auto está en el taller? ¿Necesitas ganar con Uber o Lyft? <br>Vehículos recién lavados listos en **2184 E Semoran Blvd**.',
+                'step-title': 'Selecciona el motivo de tu renta:',
+                'btn-label': 'Selecciona una opción arriba',
+                'btn-ready': 'Ver Disponibilidad y Precios'
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.getElementById('hero-title').innerHTML = translations[lang]['hero-title'];
+            document.getElementById('hero-sub').innerHTML = translations[lang]['hero-sub'];
+            document.getElementById('step-title').innerText = translations[lang]['step-title'];
+            document.getElementById('btn-label').innerText = selectedType ? translations[lang]['btn-ready'] : translations[lang]['btn-label'];
+            document.querySelectorAll('.lang-txt').forEach(el => el.innerText = el.getAttribute('data-' + lang));
+        }
+
+        function selectOption(type, elementId) {
+            selectedType = type;
+            document.querySelectorAll('.option-card').forEach(el => el.classList.remove('active'));
+            document.getElementById(elementId).classList.add('active');
+            const btn = document.getElementById('cta-button');
+            btn.classList.replace('bg-slate-400', 'bg-red-600');
+            btn.classList.remove('cursor-not-allowed');
+            btn.disabled = false;
+            document.getElementById('btn-label').innerText = translations[currentLang]['btn-ready'];
+        }
+
+        function redirectToAvis() { if (selectedType) window.location.href = links[selectedType]; }
+        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
+    </script>
+</body>
+</html>
